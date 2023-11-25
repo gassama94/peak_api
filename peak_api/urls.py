@@ -17,13 +17,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from todo import views
+from todo.views import ProfileView
 from rest_framework import routers
 
 router = routers.DefaultRouter()
-router.register(r'tasks', views.TodView, 'task')
+router.register(r'tasks', views.TodoView, 'task')
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
+    path('api/profile/<int:pk>', views.ProfileView.as_view(), name='profile-detail'),
 ]

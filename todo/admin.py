@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Todo
+from .models import Todo, Profile
 
 # Register your models here.
 class TodoAdmin(admin.ModelAdmin):
@@ -8,3 +8,5 @@ class TodoAdmin(admin.ModelAdmin):
 
 # Register Admin
 admin.site.register(Todo, TodoAdmin)
+admin.site.register(Profile)
+
